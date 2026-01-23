@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    container_name: aura_app
+    environment:
+      - PORT=7080
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/aura_hotel_db
+    depends_on:
+      - mongodb
+    restart: always
+    networks:
+      - aura_network
+      - coolify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aura-app.rule=Host(`pms.innovmar.cloud`)"
+      - "traefik.http.routers.aura-app.entrypoints=http"
+      - "traefik.http.routers.aura-app-secure.rule=Host(`pms.innovmar.cloud`)"
+      - "traefik.http.routers.aura-app-secure.entrypoints=https"
+      - "traefik.http.routers.aura-app-secure.tls=true"
+      - "traefik.http.routers.aura-app-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aura-app.loadbalancer.server.port=7080"
+
+  mongodb:
+    image: mongo:latest
+    container_name: aura_mongodb
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - aura_network
+    restart: always
+
+networks:
+  aura_network:
+  coolify:
+    external: true
+
+volumes:
+  mongodb_data:
