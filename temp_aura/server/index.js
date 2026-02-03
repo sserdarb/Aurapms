@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 7081;
+const PORT = process.env.PORT || 7080;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongodb:27017/aura_hotel_db';
 
 // Middleware

@@ -1,7 +1,7 @@
 import { Hotel, User, Role, SystemLog } from '../types';
 
 // API Base URL - relative for production (served by same origin) or localhost for dev
-const API_URL = import.meta.env.PROD ? '/api' : 'http://localhost:7081/api';
+const API_URL = import.meta.env.PROD ? '/api' : 'http://localhost:7080/api';
 
 // --- Helper Functions ---
 
