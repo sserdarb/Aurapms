@@ -554,7 +554,7 @@ const PropertySettings: React.FC<PropertySettingsProps> = ({ currency, setCurren
           )}
 
           {/* Payments Tab */}
-          {activeTab === 'payments' && integrationSettings && (
+          {activeTab === 'payments' && integrationSettings && integrationSettings.pos && (
             <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6 animate-fade-in">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 font-serif border-b border-slate-100 dark:border-slate-700 pb-4">{t.paymentSettings}</h3>
 
@@ -648,7 +648,7 @@ const PropertySettings: React.FC<PropertySettingsProps> = ({ currency, setCurren
           )}
 
           {/* Integrations Tab */}
-          {activeTab === 'integrations' && integrationSettings && (
+          {activeTab === 'integrations' && integrationSettings && integrationSettings.eInvoice && (
             <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6 animate-fade-in">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 font-serif border-b border-slate-100 dark:border-slate-700 pb-4">{t.eInvoiceSettings}</h3>
 
@@ -741,7 +741,7 @@ const PropertySettings: React.FC<PropertySettingsProps> = ({ currency, setCurren
           )}
 
           {/* Legal & KBS Tab */}
-          {activeTab === 'legal' && integrationSettings && (
+          {activeTab === 'legal' && integrationSettings && integrationSettings.kbs && (
             <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-6 animate-fade-in">
               <div className="flex items-start gap-4 mb-4 bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-100 dark:border-blue-800">
                 <ShieldAlert className="text-blue-600 dark:text-blue-400 mt-1" size={24} />
